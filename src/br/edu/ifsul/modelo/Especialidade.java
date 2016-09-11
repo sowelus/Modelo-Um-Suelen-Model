@@ -25,12 +25,12 @@ import org.hibernate.validator.constraints.NotBlank;
  * @author Suélen A. Camargo <s-a-camargo@hotmail.com>
  */
 @Entity
-@Table(name = "instituicao")
-public class Instituicao implements Serializable {
+@Table(name = "especialidade")
+public class Especialidade implements Serializable {
     @Id
-    @SequenceGenerator(name = "seq_instituicao", sequenceName = "seq_instituicao_id",
+    @SequenceGenerator(name = "seq_especialidade", sequenceName = "seq_especialidade_id",
             allocationSize = 1)
-    @GeneratedValue(generator = "seq_instituicao", strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(generator = "seq_especialidade", strategy = GenerationType.SEQUENCE)
     private Integer id;
     
     @Length(max = 50, message = "O nome não pode ter mais de {max} caracteres")
@@ -39,14 +39,7 @@ public class Instituicao implements Serializable {
     @Column(name = "nome", length = 50, nullable = false)
     private String nome;
     
-    @Length(max = 4, min = 4, message = "O ano de fundacao deve ter {max} caracteres")
-    @NotNull(message = "O ano de fundacao não pode ser nulo")
-    @NotBlank(message = "O ano de fundacao não pode estar em branco")    
-    @Column(name = "ano_fundacao", length = 4, nullable = false)
-    private String anoFundacao;
-    
-
-    public Instituicao() {
+    public Especialidade() {
     }
 
     public Integer getId() {
@@ -65,15 +58,7 @@ public class Instituicao implements Serializable {
         this.nome = nome;
     }
 
-    public String getAnoFundacao() {
-        return anoFundacao;
-    }
-
-    public void setAnoFundacao(String anoFundacao) {
-        this.anoFundacao = anoFundacao;
-    }
-    
-  
+   
     @Override
     public int hashCode() {
         int hash = 7;
@@ -92,7 +77,7 @@ public class Instituicao implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Instituicao other = (Instituicao) obj;
+        final Especialidade other = (Especialidade) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }

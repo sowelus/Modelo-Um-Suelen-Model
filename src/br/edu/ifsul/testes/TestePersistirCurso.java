@@ -1,6 +1,7 @@
 package br.edu.ifsul.testes;
 
-import br.edu.ifsul.modelo.Instituicao;
+import br.edu.ifsul.modelo.Curso;
+import java.util.Calendar;
 import java.util.Set;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -13,7 +14,7 @@ import javax.validation.Validator;
  *
  * @author Suélen A. Camargo <s-a-camargo@hotmail.com>
  */
-public class TestePersistirInstituicao {
+public class TestePersistirCurso {
 
     /**
      * @param args the command line arguments
@@ -22,20 +23,21 @@ public class TestePersistirInstituicao {
         EntityManagerFactory emf
                 = Persistence.createEntityManagerFactory("modelo-um-suelen-ModelPU");
         EntityManager em = emf.createEntityManager();
-       // Curso c = em.find(Curso.class, 1);
-        Instituicao e = new Instituicao();
-        e.setNome("IFSUL");
-        e.setAnoFundacao("2005");
-       // e.setCurso(c);        
+        Curso c = em.find(Curso.class, 2);
+        c.setNome("Sistemas");
+        c.setSigla("TSPI");
+        c.setDescricao("Aprenda a Programar");
+        c.setAtivo(true);
+        c.setInicioAtividades(Calendar.getInstance());
         Validator validador = Validation.buildDefaultValidatorFactory().getValidator();
-        Set<ConstraintViolation<Instituicao>> erros = validador.validate(e);
+        Set<ConstraintViolation<Curso>> erros = validador.validate(c);
         if (erros.size() > 0) {
-            for (ConstraintViolation<Instituicao> erro : erros) {
+            for (ConstraintViolation<Curso> erro : erros) {
                 System.out.println("Erro: " + erro.getMessage());
             }
         } else {
             em.getTransaction().begin();
-            em.persist(e);
+            em.persist(c);
             em.getTransaction().commit();
         }
 
