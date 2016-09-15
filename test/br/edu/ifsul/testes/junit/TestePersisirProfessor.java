@@ -40,8 +40,8 @@ public class TestePersisirProfessor {
         boolean exception = false; // variavel que vai armazenar o resultado do teste
         try {
             Professor pf = new Professor();
-            pf.setNome("Suélen Camargo");
-            pf.setEmail("s-a-camargo@hotmail.com");
+            pf.setNome("Jungkook");
+            pf.setEmail("kookie@hotmail.com");
             pf.setNascimento(Calendar.getInstance());
             
             pf.setTitulacao("Graduado");
