@@ -23,12 +23,12 @@ import static org.junit.Assert.*;
  *
  * @author sowelus
  */
-public class TestePersistirCurso {
+public class TestePersistirDisciplina {
     
     EntityManagerFactory emf;
     EntityManager em;
         
-    public TestePersistirCurso() {
+    public TestePersistirDisciplina() {
     }
     
     @Before
@@ -46,15 +46,15 @@ public class TestePersistirCurso {
     public void teste(){
         Boolean exception = false;
         try {
-            Curso c = new Curso();
-            c.setNome("Sistemas");
-            c.setSigla("TSPI");
-            c.setDescricao("Aprenda a Programar");
-            c.setAtivo(true);
-            c.setInicioAtividades(Calendar.getInstance());
-            c.setInstituicao(em.find(Instituicao.class, 4)); 
+            Curso c = em.find(Curso.class, 6);
+            Disciplina d = new Disciplina();
+            d.setNome("Design de produtos");
+            d.setDescricao("Edição de imagem");
+            d.setCargaHoraria(4.5);
+            d.setConhecimentosMinimos("Photoshop");
+            c.adicionarDisciplina(d);               
             em.getTransaction().begin();
-            em.persist(c);
+            em.persist(d);
             em.getTransaction().commit();
         } catch(Exception e){
             exception = true;

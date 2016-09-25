@@ -5,14 +5,11 @@
  */
 package br.edu.ifsul.testes.junit;
 
+import br.edu.ifsul.modelo.Aluno;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import br.edu.ifsul.modelo.Curso;
-import br.edu.ifsul.modelo.Disciplina;
-import br.edu.ifsul.modelo.Instituicao;
-import java.util.Calendar;
-
+import br.edu.ifsul.modelo.Nota;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -23,12 +20,12 @@ import static org.junit.Assert.*;
  *
  * @author sowelus
  */
-public class TestePersistirCurso {
+public class TestePersistirNota {
     
     EntityManagerFactory emf;
     EntityManager em;
         
-    public TestePersistirCurso() {
+    public TestePersistirNota() {
     }
     
     @Before
@@ -46,13 +43,11 @@ public class TestePersistirCurso {
     public void teste(){
         Boolean exception = false;
         try {
-            Curso c = new Curso();
-            c.setNome("Sistemas");
-            c.setSigla("TSPI");
-            c.setDescricao("Aprenda a Programar");
-            c.setAtivo(true);
-            c.setInicioAtividades(Calendar.getInstance());
-            c.setInstituicao(em.find(Instituicao.class, 4)); 
+            Nota c = new Nota();
+            c.setNota01(8.0);
+            c.setNota02(9.0);
+            c.setMedia(8.5);
+            c.setAluno(em.find(Aluno.class, 1)); 
             em.getTransaction().begin();
             em.persist(c);
             em.getTransaction().commit();
