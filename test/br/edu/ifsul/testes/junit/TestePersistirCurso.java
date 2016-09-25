@@ -47,7 +47,7 @@ public class TestePersistirCurso {
         Boolean exception = false;
         try {
             Curso c = new Curso();
-            c.setNome("Sistemas");
+            c.setNome("Sistemas para internet");
             c.setSigla("TSPI");
             c.setDescricao("Aprenda a Programar");
             c.setAtivo(true);

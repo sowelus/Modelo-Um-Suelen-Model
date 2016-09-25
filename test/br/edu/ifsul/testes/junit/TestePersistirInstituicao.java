@@ -47,7 +47,7 @@ public class TestePersistirInstituicao {
         Boolean exception = false;
         try {
             Instituicao c = new Instituicao();
-            c.setNome("IFSUL Campos Passo Fundo");
+            c.setNome("IFSUL campus sapucaia do sul");
             c.setAnoFundacao("2005");    
             em.getTransaction().begin();
             em.persist(c);

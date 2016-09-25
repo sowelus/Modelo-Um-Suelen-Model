@@ -6,6 +6,7 @@
 package br.edu.ifsul.testes.junit;
 
 import br.edu.ifsul.modelo.Aluno;
+import br.edu.ifsul.modelo.Disciplina;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -43,11 +44,13 @@ public class TestePersistirNota {
     public void teste(){
         Boolean exception = false;
         try {
+            Disciplina d = em.find(Disciplina.class, 2);
             Nota c = new Nota();
             c.setNota01(8.0);
             c.setNota02(9.0);
             c.setMedia(8.5);
             c.setAluno(em.find(Aluno.class, 1)); 
+            d.adicionarNota(c);
             em.getTransaction().begin();
             em.persist(c);
             em.getTransaction().commit();

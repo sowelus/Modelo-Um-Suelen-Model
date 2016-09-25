@@ -45,7 +45,7 @@ public class TestePersistirEspecialidade {
         Boolean exception = false;
         try {
             Especialidade c = new Especialidade();
-            c.setNome("Banco de dados");
+            c.setNome("Ciencias sociais");
             em.getTransaction().begin();
             em.persist(c);
             em.getTransaction().commit();
