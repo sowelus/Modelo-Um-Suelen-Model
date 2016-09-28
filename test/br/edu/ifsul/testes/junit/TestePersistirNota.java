@@ -49,7 +49,7 @@ public class TestePersistirNota {
             c.setNota01(8.0);
             c.setNota02(9.0);
             c.setMedia(8.5);
-            c.setAluno(em.find(Aluno.class, 4)); 
+            c.setAluno(em.find(Aluno.class, 20)); 
             d.adicionarNota(c);
             em.getTransaction().begin();
             em.persist(c);

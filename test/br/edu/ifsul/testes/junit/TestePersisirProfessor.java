@@ -3,6 +3,7 @@ package br.edu.ifsul.testes.junit;
 import br.edu.ifsul.modelo.Aluno;
 import br.edu.ifsul.modelo.Professor;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -43,8 +44,7 @@ public class TestePersisirProfessor {
             Professor pf = new Professor();
             pf.setNome("Jungkook");
             pf.setEmail("kookie@hotmail.com");
-//          pf.setNascimento(Calendar.getInstance());
-            pf.setNascimento("21/05/91");
+            pf.setNascimento(new GregorianCalendar(1991, 4, 21));            
             pf.setTitulacao("Graduado");
             pf.setTopicosDeInteresse("Cloud Computing, computação móvel");
             

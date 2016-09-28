@@ -2,6 +2,7 @@ package br.edu.ifsul.testes.junit;
 
     import br.edu.ifsul.modelo.Aluno;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -42,9 +43,8 @@ public class TestePersisirAluno {
             Aluno pf = new Aluno();
             pf.setNome("Jungkook");
             pf.setEmail("kookie@hotmail.com");
-//          pf.setNascimento(Calendar.getInstance());
-            pf.setNascimento("21/05/91");
-            
+          //  pf.setNascimento(Calendar.getInstance());
+            pf.setNascimento(new GregorianCalendar(1991, 4, 21));
             em.getTransaction().begin();
             em.persist(pf);
             em.getTransaction().commit();
