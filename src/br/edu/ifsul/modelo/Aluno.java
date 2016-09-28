@@ -12,8 +12,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+//import javax.persistence.Temporal;
+//import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
@@ -44,9 +44,11 @@ public class Aluno implements Serializable {
     @Column(name = "email", length = 50, nullable = false)
     private String email;
     
-    @Temporal(TemporalType.DATE)
-    @Column(name = "nascimento", nullable = false)
-    private Calendar nascimento;
+    //verificar questao de data
+    @Length(max = 8, message = "Exemplo DD/MM/AA, a data deve estar nesse formato")
+    @NotBlank(message = "O data não pode estar em branco")
+    @Column(name = "nascimento", length = 6, nullable = false)
+    private String nascimento;
 
        
     public Aluno() {
@@ -88,11 +90,19 @@ public class Aluno implements Serializable {
         this.email = email;
     }
 
-    public Calendar getNascimento() {
+//    public Calendar getNascimento() {
+//        return nascimento;
+//    }
+//
+//    public void setNascimento(Calendar nascimento) {
+//        this.nascimento = nascimento;
+//    }
+    
+    public String getNascimento() {
         return nascimento;
     }
 
-    public void setNascimento(Calendar nascimento) {
+    public void setNascimento(String nascimento) {
         this.nascimento = nascimento;
     }
 

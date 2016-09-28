@@ -10,6 +10,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
@@ -24,19 +26,17 @@ import org.hibernate.validator.constraints.NotBlank;
 public class Professor extends Aluno implements Serializable {
     
     @Length(max = 50, message = "A Titulação não pode ter mais de {max} caracteres")
-    @NotNull(message = "A Titulação não pode ser nulo")
     @NotBlank(message = "A Titulação não pode estar em branco")
     @Column(name = "titulacao", length = 50, nullable = false)
     private String titulacao;
     
   
     @NotNull(message = "O campo tópicos de interesse não podem estar nulo")
-    @NotBlank(message = "O campo tópicos de interesse não podem estarA Titulação não pode estar em branco")
+    @NotBlank(message = "O campo tópicos de interesse não podem estar em branco")
     @Column(name = "topicosDeInteresse", columnDefinition = "text", nullable = false)
     private String topicosDeInteresse;
     
-      
-
+   
     public Professor() {
     }
 
@@ -68,8 +68,7 @@ public class Professor extends Aluno implements Serializable {
         this.topicosDeInteresse = topicosDeInteresse;
     }
 
- 
-    
+
 
 
    

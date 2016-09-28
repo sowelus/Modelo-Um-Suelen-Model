@@ -1,7 +1,6 @@
 package br.edu.ifsul.testes.junit;
 
-import br.edu.ifsul.modelo.Aluno;
-import br.edu.ifsul.modelo.Professor;
+    import br.edu.ifsul.modelo.Aluno;
 import java.util.Calendar;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -16,12 +15,12 @@ import static org.junit.Assert.*;
  *
  * @author jorge
  */
-public class TestePersisirProfessor {
+public class TestePersisirAluno {
     
     EntityManagerFactory emf;
     EntityManager em;
     
-    public TestePersisirProfessor() {
+    public TestePersisirAluno() {
     }
     
     @Before
@@ -40,13 +39,11 @@ public class TestePersisirProfessor {
     public void teste(){
         boolean exception = false; // variavel que vai armazenar o resultado do teste
         try {
-            Professor pf = new Professor();
+            Aluno pf = new Aluno();
             pf.setNome("Jungkook");
             pf.setEmail("kookie@hotmail.com");
 //          pf.setNascimento(Calendar.getInstance());
             pf.setNascimento("21/05/91");
-            pf.setTitulacao("Graduado");
-            pf.setTopicosDeInteresse("Cloud Computing, computação móvel");
             
             em.getTransaction().begin();
             em.persist(pf);

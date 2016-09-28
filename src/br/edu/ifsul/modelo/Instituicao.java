@@ -41,7 +41,7 @@ public class Instituicao implements Serializable {
     
     @Length(max = 4, min = 4, message = "O ano de fundacao deve ter {max} caracteres")
     @NotNull(message = "O ano de fundacao não pode ser nulo")
-    @NotBlank(message = "O ano de fundacao não pode estar em branco")    
+    @NotBlank(message = "O ano de fundacao não pode estar em branco")  
     @Column(name = "ano_fundacao", length = 4, nullable = false)
     private String anoFundacao;
     
