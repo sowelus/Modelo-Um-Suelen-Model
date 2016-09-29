@@ -9,7 +9,7 @@ public class Util {
             e = (Exception) e.getCause();
         }
         String retorno = e.getMessage();
-        if (retorno.contains("viola restrição de chave estrangeira")){
+        if (retorno.contains("violates foreign key constraint")){
             retorno = "Registro não pode ser excluido por possuir referência "
                     + "em outros objetos";
         }
