@@ -1,6 +1,7 @@
 package br.edu.ifsul.testes.junit;
 
 import br.edu.ifsul.modelo.Aluno;
+import br.edu.ifsul.modelo.Especialidade;
 import br.edu.ifsul.modelo.Professor;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -42,12 +43,12 @@ public class TestePersisirProfessor {
         boolean exception = false; // variavel que vai armazenar o resultado do teste
         try {
             Professor pf = new Professor();
-            pf.setNome("Jungkook");
-            pf.setEmail("kookie@hotmail.com");
+            pf.setNome("Jorge");
+            pf.setEmail("jorge@hotmail.com");
             pf.setNascimento(new GregorianCalendar(1991, 4, 21));            
             pf.setTitulacao("Graduado");
             pf.setTopicosDeInteresse("Cloud Computing, computação móvel");
-            
+            pf.setEspecialidade(em.find(Especialidade.class, 9)); 
             em.getTransaction().begin();
             em.persist(pf);
             em.getTransaction().commit();

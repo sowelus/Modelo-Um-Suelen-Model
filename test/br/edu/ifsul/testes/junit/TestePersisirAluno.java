@@ -41,8 +41,8 @@ public class TestePersisirAluno {
         boolean exception = false; // variavel que vai armazenar o resultado do teste
         try {
             Aluno pf = new Aluno();
-            pf.setNome("Jungkook");
-            pf.setEmail("kookie@hotmail.com");
+            pf.setNome("teste");
+            pf.setEmail("teste@hotmail.com");
           //  pf.setNascimento(Calendar.getInstance());
             pf.setNascimento(new GregorianCalendar(1991, 4, 21));
             em.getTransaction().begin();

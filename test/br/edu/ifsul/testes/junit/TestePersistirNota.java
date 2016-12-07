@@ -44,7 +44,7 @@ public class TestePersistirNota {
     public void teste(){
         Boolean exception = false;
         try {
-            Disciplina d = em.find(Disciplina.class, 2);
+            Disciplina d = em.find(Disciplina.class, 4);
             Nota c = new Nota();
             c.setNota01(8.0);
             c.setNota02(9.0);

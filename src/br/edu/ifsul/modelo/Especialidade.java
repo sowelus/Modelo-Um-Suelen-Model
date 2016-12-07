@@ -39,6 +39,8 @@ public class Especialidade implements Serializable {
     @Column(name = "nome", length = 50, nullable = false)
     private String nome;
     
+    
+    
     public Especialidade() {
     }
 

@@ -69,6 +69,15 @@ public class Disciplina implements Serializable {
             orphanRemoval = true, fetch = FetchType.LAZY) 
     private List<Nota> notas = new ArrayList<>();     
     
+    @ManyToMany
+    @JoinTable(name = "cursam",
+            joinColumns = 
+            @JoinColumn(name = "disciplina", referencedColumnName = "id", 
+                    nullable = false),
+            inverseJoinColumns = 
+            @JoinColumn(name = "aluno", referencedColumnName = "id",
+                    nullable = false))
+    private List<Aluno> cursam = new ArrayList<>();
     
     
     public Disciplina() {
@@ -167,6 +176,14 @@ public class Disciplina implements Serializable {
     public void setCurso(Curso curso) {
         this.curso = curso;
     }
+  
+   public List<Aluno> getCursam() {
+        return cursam;
+    }
+
+    public void setCursam(List<Aluno> cursam) {
+        this.cursam = cursam;
+    }
     
     @Override
     public int hashCode() {
@@ -193,6 +210,8 @@ public class Disciplina implements Serializable {
         return true;
     } 
 
+   
+  
  
 
     

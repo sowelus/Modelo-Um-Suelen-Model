@@ -36,6 +36,10 @@ public class Professor extends Aluno implements Serializable {
     @Column(name = "topicosDeInteresse", columnDefinition = "text", nullable = false)
     private String topicosDeInteresse;
     
+    @ManyToOne
+    @JoinColumn(name = "especialidade", referencedColumnName = "id", nullable = false)
+    private Especialidade especialidade; 
+    
    
     public Professor() {
     }
@@ -66,6 +70,14 @@ public class Professor extends Aluno implements Serializable {
      */
     public void setTopicosDeInteresse(String topicosDeInteresse) {
         this.topicosDeInteresse = topicosDeInteresse;
+    }
+
+    public Especialidade getEspecialidade() {
+        return especialidade;
+    }
+
+    public void setEspecialidade(Especialidade especialidade) {
+        this.especialidade = especialidade;
     }
 
 

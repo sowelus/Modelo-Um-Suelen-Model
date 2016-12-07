@@ -46,9 +46,9 @@ public class TestePersistirDisciplina {
     public void teste(){
         Boolean exception = false;
         try {
-            Curso c = em.find(Curso.class, 6);
+            Curso c = em.find(Curso.class, 9);
             Disciplina d = new Disciplina();
-            d.setNome("Design de produtos");
+            d.setNome("Design web");
             d.setDescricao("Edição de imagem");
             d.setCargaHoraria(4.5);
             d.setConhecimentosMinimos("Photoshop");
